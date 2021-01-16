@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package caesars.cipher;
 
 public class CaesarsCipher {
 
@@ -14,20 +14,20 @@ public class CaesarsCipher {
     }
 
     private void offsetBy(char[] character, int offset) {
-        for(int i=0; i < character.length; ++i) {
+        for(int i = 0; i < character.length; ++i) {
             if (character[i] != ' ') {
                 character[i] = offsetChar(character[i], offset, LETTER_A, LETTER_Z);
             }
         }
     }
-    private char offsetChar(char c, int offset, char first, char last) {
+    private char offsetChar(char c, int offset, char letterA, char letterZ) {
         c += offset;
-        if (c < first) {
+        if (c < letterA) {
             return (char) (c + ALPHABET_SIZE);
         }
-        if (c > last) {
-            return (char) (c + ALPHABET_SIZE);
+        if (c > letterZ) {
+            return (char) (c - ALPHABET_SIZE);
         }
-        return 0;
+        return c;
     }
 }

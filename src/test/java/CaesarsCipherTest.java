@@ -1,17 +1,18 @@
+import caesars.cipher.CaesarsCipher;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CaesarsCipherTest {
-    private CaesarsCipher caesarsCipher = new CaesarsCipher();
+    private CaesarsCipher caesarCipher = new CaesarsCipher();
 
     @Test
     void testCipheredMessage() {
-        assertEquals("n", caesarsCipher.cipher("how you doing", 12));
+        assertEquals("tai mdq kag pauzs fapmk", caesarCipher.cipher("how are you doing today", 12));
     }
 
     @Test
     void testEmptyString() {
-        assertEquals("", caesarsCipher.cipher("", 12));
+        assertEquals("", caesarCipher.cipher("", 12));
     }
 }
